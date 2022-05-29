@@ -23,7 +23,7 @@ header{
 
 main{
     padding: auto; 
-    min-height: 100vh;
+    min-height: 100vh; 
 }
 
 .cajaPrincipalindex{
@@ -67,6 +67,19 @@ main{
     border-width: 5px;
     border-color: black;
 
+}
+
+
+.formRegresar{
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.formRegresar input{
+    font-size: x-large;
+    padding: 5px 20px;
+    border-style: none;
+    border-radius: 20px;
 }
 
 

@@ -6,6 +6,8 @@
     <title>Juego ahorcado - Bienvenido</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styleJuego.css">
+
 </head>
 <body>
     <header>
@@ -21,15 +23,24 @@
             <div class="figura">
 
             </div>
-            <div class="Instrucciones">
-                <span>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam dolorem, voluptatibus, nihil molestiae sunt in a sit non consequuntur aut ducimus nulla dolor corrupti, quis eaque. Vitae tenetur explicabo labore.
-                </span>
+            <div id="tablero">
+                <canvas width="1200" height="800">
+
+                </canvas>
                 
 
             </div>
 
         </section>
+
+    </section class="regresar">
+    <form class="formRegresar">
+        <a href="index.html">
+            <input type="button" value="Regresar al inicio">
+        </a>
+    </form>
+<section>
+    
     </main>
     <footer>
         <div class="cajaFooter">
@@ -42,5 +53,6 @@
         </div>
     </footer>
     
+    <script src="scripts/juego.js" ></script>
 </body>
 </html>

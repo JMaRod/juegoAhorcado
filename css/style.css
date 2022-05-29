@@ -1,0 +1,89 @@
+body{
+    background: #FFFAE3;
+}
+
+header{
+    background-color: #F7567C;
+    padding: auto;
+}
+.cajaHeader{
+    width: auto;
+    position: relative;
+    margin: 0px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.cajaHeader h1{
+    font-size:xx-large;
+}
+
+
+
+main{
+    padding: auto; 
+    min-height: 100vh;
+}
+
+.cajaPrincipalindex{
+    width: auto;
+    min-height: 100vh;
+    margin: 0px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    border-color: black;
+    border-style: solid;
+    border-width: 10px;
+    
+    
+
+}
+.menu{
+    box-sizing:border-box;
+    width: 100%;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    border-color: rgb(209, 11, 11);
+    border-style: solid;
+    border-width: 10px;
+
+}
+
+.itemMenu{
+    font-size: x-large;
+    padding: 3px;
+    margin: 5px;
+    text-align: center;
+}
+.boton{
+    width: 100%;
+    font-size: x-large;
+    padding: 15px;
+    border-radius: 20px;
+    border-style: none;
+    border-width: 5px;
+    border-color: black;
+
+}
+
+
+
+
+
+
+footer{
+    background-color: #99E1D9;
+    padding: auto;
+}
+.cajaFooter{
+    width: auto;
+    position: relative;
+    margin: 0px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}

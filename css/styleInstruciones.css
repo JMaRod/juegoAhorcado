@@ -1,0 +1,29 @@
+.instrucciones{ 
+    padding: 25px;
+    font-size: x-large;
+}
+
+h2{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: xx-large;
+}
+
+.parrafos{
+    margin-bottom: 15px;
+}
+
+.parrafos:last-child{
+    text-align: center;
+}
+
+.formRegresar{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.formRegresar input{
+    font-size: x-large;
+    padding: 5px 20px;
+    border-style: none;
+    border-radius: 20px;
+}

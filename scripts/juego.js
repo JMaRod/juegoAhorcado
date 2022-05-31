@@ -4,7 +4,7 @@ var pincel = tablero.getContext("2d");
 var diccionario=[];
 primerDiccionario();
 var palabraJuego = palabraParaJuego();
-console.log("palabra "+palabraJuego.palabra+"oo "+palabraJuego.categoria)
+console.log("palabra "+palabraJuego.palabra+"oo "+palabraJuego.pista)
 console.log(diccionario);
 
 pintarTablero();
@@ -35,19 +35,19 @@ function primerDiccionario(){
     llenarDiccionario("SUETER","ROPA");
 }
 
-function llenarDiccionario(palabra, categoria){ 
+function llenarDiccionario(palabra, pista){ 
     if (diccionario.length==0){
-        diccionario[0]=objetoPalabra(palabra,categoria)
+        diccionario[0]=objetoPalabra(palabra,pista)
     } else {
-        diccionario[diccionario.length]=objetoPalabra(palabra,categoria)
+        diccionario[diccionario.length]=objetoPalabra(palabra,pista)
     }
 
 }
 
-function objetoPalabra(palabra, categoria){
+function objetoPalabra(palabra, pista){
     var palabras={
         palabra:palabra,
-        categoria:categoria
+        pista:pista
     }
     return palabras;
 }

@@ -4,7 +4,7 @@ var pincel = tablero.getContext("2d");
 var diccionario=[];
 primerDiccionario();
 var palabraJuego = palabraParaJuego();
-console.log("palabra "+palabraJuego.palabra+"oo "+palabraJuego.categoria)
+console.log("palabra "+palabraJuego.palabra+"oo "+palabraJuego.pista)
 console.log(diccionario);
 
 pintarTablero();
@@ -14,11 +14,14 @@ pintarCabeza();
 pintarCuerpo();
 pintarManos();
 pintarPies();
+pintarPista();
 
 instrucciones();
 pintarGuiones();
 botones();
 pintarLetras();
+
+centrarPalabra();
 
 
 
@@ -26,28 +29,28 @@ pintarLetras();
 
 
 function primerDiccionario(){
-    llenarDiccionario("HAMBURGUESA","comida");
-    llenarDiccionario("PIZZA","comida");
-    llenarDiccionario("TACOS","comida");
+    llenarDiccionario("HAMBURGUESA","COMIDA");
+    llenarDiccionario("PIZZA","COMIDA");
+    llenarDiccionario("TACOS","COMIDA");
     llenarDiccionario("MEXICO","PAIS");
     llenarDiccionario("CHILE","PAIS");
     llenarDiccionario("PANTALONES","ROPA");
     llenarDiccionario("SUETER","ROPA");
 }
 
-function llenarDiccionario(palabra, categoria){ 
+function llenarDiccionario(palabra, pista){ 
     if (diccionario.length==0){
-        diccionario[0]=objetoPalabra(palabra,categoria)
+        diccionario[0]=objetoPalabra(palabra,pista)
     } else {
-        diccionario[diccionario.length]=objetoPalabra(palabra,categoria)
+        diccionario[diccionario.length]=objetoPalabra(palabra,pista)
     }
 
 }
 
-function objetoPalabra(palabra, categoria){
+function objetoPalabra(palabra, pista){
     var palabras={
         palabra:palabra,
-        categoria:categoria
+        pista:pista
     }
     return palabras;
 }
@@ -85,11 +88,11 @@ function pintarTablero(){
 function pintarBase(){
     pincel.fillStyle = "brown";
     pincel.fillRect(100, 100, 250, 50);
-    pincel.fillRect(135,100, 50, 500);
-    pincel.fillRect(100, 550, 300, 50);
-    pincel.fillStyle="yellow";
+    pincel.fillRect(135,100, 50, 400);
+    pincel.fillRect(100, 450, 300, 50);
+    pincel.fillStyle="yellow"; // cuerda
     pincel.fillRect(296, 150, 10, 50);
-    pincel.fillStyle="black";
+    pincel.fillStyle="black"; // margen cuerda
     pincel.strokeRect(296, 150, 10, 50);
     
 }
@@ -97,32 +100,32 @@ function pintarBase(){
 function pintarCabeza(){
     pincel.strokeStyle="green";     //cabeza
     pincel.beginPath();
-    pincel.arc(300, 250, 50, 0, 2*Math.PI)
+    pincel.arc(300, 235, 35, 0, 2*Math.PI)
     pincel.stroke();
     pincel.strokeStyle="black";
     pincel.fillStyle="yellow";      //nudo
-    pincel.fillRect(293, 300, 20, 10);
+    pincel.fillRect(290, 273, 20, 10);
     pincel.fillStyle="black";
-    pincel.strokeRect(293, 300, 20, 10);
+    pincel.strokeRect(290, 273, 20, 10);
 };
 
 function pintarCuerpo(){
     pincel.fillStyle="green";       //palito
-    pincel.fillRect(299, 310, 4, 130);
+    pincel.fillRect(297, 283, 4, 80);
 };
 
 function pintarManos(){
-    pincel.fillRect(225, 350, 150, 4)   //manos
+    pincel.fillRect(225, 300, 150, 4)   //manos
 }
 
 function pintarPies(){
     pincel.strokeStyle="green"; //pie
     pincel.lineWidth=4;
-    pincel.moveTo(301,440);
-    pincel.lineTo(250,500)
+    pincel.moveTo(299,360);
+    pincel.lineTo(250,430)
     pincel.stroke();
-    pincel.moveTo(301,440);
-    pincel.lineTo(350,500)
+    pincel.moveTo(299,360);
+    pincel.lineTo(350,430)
     pincel.stroke();
 }
 
@@ -155,19 +158,27 @@ function botones(){ //botones letras 27
             ejeXRenglon=ejeX-50;
             ejeY+=50;
         }
-        if(parrafo==8){
+        if(parrafo==9){
             ejeXRenglon=ejeX;
             ejeY+=50;
             parrafo=0;
         }   
     }
-    
+}
+
+function pintarPista(){
+    pincel.font = "35px Arial"
+    pincel.fillStyle="rgb(30, 85, 92)";
+    var pista=palabraJuego.pista;
+    pincel.fillText("PISTA:",150,590);
+    pincel.fillStyle="rgb(134, 22, 87)";
+    pincel.fillText(pista,280,590)
 }
 
 function pintarGuiones(){
     //tamaña maximo de la palabra 18 caracteres
     var arregloPalabra = Array.from(palabraJuego.palabra);
-    var ejeX=150;
+    var ejeX=100+centrarPalabra();
     pincel.font = "55px Arial";
     pincel.fillStyle="black";
 
@@ -179,7 +190,7 @@ function pintarGuiones(){
 
 function pintarLetras(){
     var arregloPalabra = Array.from(palabraJuego.palabra);
-    var ejeX=150;
+    var ejeX=100+centrarPalabra();
     pincel.font = "55px Arial";
     pincel.fillStyle="blue";
 
@@ -189,6 +200,17 @@ function pintarLetras(){
     }
 }
 
+function centrarPalabra(){
+    var ejeX=0;
+    var longitudPalabra=palabraJuego.palabra.length;
+    if(longitudPalabra%2==0){
+        longitudPalabra/=2;
+    }else{
+        longitudPalabra=Math.floor(longitudPalabra/2);
+    }
+    ejeX=(10-longitudPalabra)*50
+    return ejeX;
+}
 
 
 

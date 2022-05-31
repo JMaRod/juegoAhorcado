@@ -4,8 +4,6 @@ var pincel = tablero.getContext("2d");
 var diccionario=[];
 primerDiccionario();
 var palabraJuego = palabraParaJuego();
-console.log("palabra "+palabraJuego.palabra+"oo "+palabraJuego.pista)
-console.log(diccionario);
 
 pintarTablero();
 
@@ -22,11 +20,6 @@ botones();
 pintarLetras();
 
 centrarPalabra();
-
-
-
-
-
 
 function primerDiccionario(){
     llenarDiccionario("HAMBURGUESA","COMIDA");
@@ -58,43 +51,45 @@ function objetoPalabra(palabra, pista){
 function palabraParaJuego(){
     var numero;
     if (diccionario.length==0){
-        console.log("no hay palabras");
         return null
     } else {
         numero=Math.round(Math.random()*((diccionario.length-1)));
-        console.log("sss"+diccionario[numero].palabra)
         return diccionario[numero];
 
     }
 }
 
-function pintarTablero(){
-    pincel.fillStyle = "white";
-    pincel.fillRect(0, 0, 1200, 800);
-    pincel.fillStyle = "red";
-    pincel.fillRect(50, 0, 2, 800);
-    pincel.fillRect(0, 50, 1200, 2);
-    pincel.fillStyle="lightblue";
-    for(var i = 100; i < 800; i=i+50){
-        pincel.fillRect(0, i, 1200, 2);
-    }
-
-    // pincel.fillStyle="red";
-    // for(var i = 0; i < 1200; i=i+50){
-    //     pincel.fillRect(i, 0, 2, 1200);
-    // }
+function pintarCuadros(color, origenx, origeny, extencionx, extenciony){
+    pincel.fillStyle=color;
+    pincel.fillRect(origenx,origeny,extencionx,extenciony);
 }
 
+function pintarMargen(color, origenx, origeny, extencionx, extenciony){
+    pincel.fillStyle=color; // margen cuerda
+    pincel.strokeRect(origenx,origeny,extencionx,extenciony);
+}
+
+function pintarTablero(){
+    pintarCuadros("white", 0,0,1200,800);
+    pintarCuadros("red",50, 0, 2, 800);
+    pintarCuadros("red",0, 50, 1200, 2)
+    for(var i = 100; i < 800; i=i+50){
+        pintarCuadros("lightblue",0, i, 1200, 2);
+    }
+}
+
+function pintarTexto(color, fuente,texto, ejex, ejey){
+    pincel.fillStyle=color;
+    pincel.font = fuente;
+    pincel.fillText(texto, ejex, ejey);
+};
+
 function pintarBase(){
-    pincel.fillStyle = "brown";
-    pincel.fillRect(100, 100, 250, 50);
-    pincel.fillRect(135,100, 50, 400);
-    pincel.fillRect(100, 450, 300, 50);
-    pincel.fillStyle="yellow"; // cuerda
-    pincel.fillRect(296, 150, 10, 50);
-    pincel.fillStyle="black"; // margen cuerda
-    pincel.strokeRect(296, 150, 10, 50);
-    
+    pintarCuadros("brown",100, 100, 250, 50);
+    pintarCuadros("brown",135,100, 50, 400);
+    pintarCuadros("brown",100, 450, 300, 50);
+    pintarCuadros("yellow",296, 150, 10, 50);
+    pintarMargen("black",296, 150, 10, 50);
 }
 
 function pintarCabeza(){
@@ -103,19 +98,17 @@ function pintarCabeza(){
     pincel.arc(300, 235, 35, 0, 2*Math.PI)
     pincel.stroke();
     pincel.strokeStyle="black";
-    pincel.fillStyle="yellow";      //nudo
-    pincel.fillRect(290, 273, 20, 10);
-    pincel.fillStyle="black";
-    pincel.strokeRect(290, 273, 20, 10);
+    //nudo de cuerda
+    pintarCuadros("yellow",290, 273, 20, 10);
+    pintarMargen("black",290, 273, 20, 10)
 };
 
 function pintarCuerpo(){
-    pincel.fillStyle="green";       //palito
-    pincel.fillRect(297, 283, 4, 80);
+    pintarCuadros("green",297, 283, 4, 80);
 };
 
 function pintarManos(){
-    pincel.fillRect(225, 300, 150, 4)   //manos
+    pintarCuadros("green",225, 300, 150, 4);
 }
 
 function pintarPies(){
@@ -129,9 +122,8 @@ function pintarPies(){
     pincel.stroke();
 }
 
-function instrucciones(){
-    pincel.font = "40px Arial"
-    pincel.fillText("Elige una letra", 720, 150);
+function instrucciones(){    
+    pintarTexto("green","40px Arial","Elige una letra",720,150);
 };
 
 function botones(){ //botones letras 27
@@ -146,11 +138,10 @@ function botones(){ //botones letras 27
     var indice=0;
     var parrafo=0;
     var ejeXRenglon=ejeX;
-    pincel.font = "55px Arial";
-    pincel.fillStyle = "black";
+    var fuente = "55px Arial";
 
     while(indice<letras.length){
-        pincel.fillText(letras[indice],ejeXRenglon,ejeY);
+        pintarTexto("black",fuente,letras[indice],ejeXRenglon,ejeY)
         ejeXRenglon+=100;
         indice++;
         parrafo++;
@@ -167,23 +158,22 @@ function botones(){ //botones letras 27
 }
 
 function pintarPista(){
-    pincel.font = "35px Arial"
-    pincel.fillStyle="rgb(30, 85, 92)";
     var pista=palabraJuego.pista;
-    pincel.fillText("PISTA:",150,590);
-    pincel.fillStyle="rgb(134, 22, 87)";
-    pincel.fillText(pista,280,590)
+    var fuente = "35px Arial";
+    var colorTexto="rgb(30, 85, 92)";
+    var colorPista="rgb(134, 22, 87)"
+    pintarTexto(colorTexto,fuente,"PISTA:",150,590);
+    pintarTexto(colorPista,fuente,pista,280,590);
 }
 
 function pintarGuiones(){
     //tamaña maximo de la palabra 18 caracteres
     var arregloPalabra = Array.from(palabraJuego.palabra);
     var ejeX=100+centrarPalabra();
-    pincel.font = "55px Arial";
-    pincel.fillStyle="black";
-
+    var color="black";
+    
     for(var i=0; i<arregloPalabra.length; i++){
-        pincel.fillRect(ejeX, 700, 40, 3);
+        pintarCuadros(color,ejeX, 700, 40, 3);
         ejeX+=50;
     }
 };
@@ -191,11 +181,11 @@ function pintarGuiones(){
 function pintarLetras(){
     var arregloPalabra = Array.from(palabraJuego.palabra);
     var ejeX=100+centrarPalabra();
-    pincel.font = "55px Arial";
-    pincel.fillStyle="blue";
+    var fuente = "55px Arial";
+    var color="blue";
 
     for(var i=0; i<arregloPalabra.length; i++){
-        pincel.fillText(arregloPalabra[i],ejeX,695);
+        pintarTexto(color,fuente,arregloPalabra[i],ejeX,695);
         ejeX+=50;
     }
 }

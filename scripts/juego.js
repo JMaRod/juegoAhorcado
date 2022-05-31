@@ -1,9 +1,71 @@
 var tablero = document.querySelector("canvas");
 var pincel = tablero.getContext("2d");
-pintarTablero(pincel);
+
+var diccionario=[];
+primerDiccionario();
+var palabraJuego = palabraParaJuego();
+console.log("palabra "+palabraJuego.palabra+"oo "+palabraJuego.categoria)
+console.log(diccionario);
+
+pintarTablero();
+
+pintarBase();
+pintarCabeza();
+pintarCuerpo();
+pintarManos();
+pintarPies();
+
+instrucciones();
+pintarGuiones();
+botones();
+pintarLetras();
 
 
-function pintarTablero(pincel){
+
+
+
+
+function primerDiccionario(){
+    llenarDiccionario("HAMBURGUESA","comida");
+    llenarDiccionario("PIZZA","comida");
+    llenarDiccionario("TACOS","comida");
+    llenarDiccionario("MEXICO","PAIS");
+    llenarDiccionario("CHILE","PAIS");
+    llenarDiccionario("PANTALONES","ROPA");
+    llenarDiccionario("SUETER","ROPA");
+}
+
+function llenarDiccionario(palabra, categoria){ 
+    if (diccionario.length==0){
+        diccionario[0]=objetoPalabra(palabra,categoria)
+    } else {
+        diccionario[diccionario.length]=objetoPalabra(palabra,categoria)
+    }
+
+}
+
+function objetoPalabra(palabra, categoria){
+    var palabras={
+        palabra:palabra,
+        categoria:categoria
+    }
+    return palabras;
+}
+
+function palabraParaJuego(){
+    var numero;
+    if (diccionario.length==0){
+        console.log("no hay palabras");
+        return null
+    } else {
+        numero=Math.round(Math.random()*((diccionario.length-1)));
+        console.log("sss"+diccionario[numero].palabra)
+        return diccionario[numero];
+
+    }
+}
+
+function pintarTablero(){
     pincel.fillStyle = "white";
     pincel.fillRect(0, 0, 1200, 800);
     pincel.fillStyle = "red";
@@ -18,13 +80,9 @@ function pintarTablero(pincel){
     // for(var i = 0; i < 1200; i=i+50){
     //     pincel.fillRect(i, 0, 2, 1200);
     // }
-
-
 }
 
-pintarBase(pincel);
-
-function pintarBase(pincel){
+function pintarBase(){
     pincel.fillStyle = "brown";
     pincel.fillRect(100, 100, 250, 50);
     pincel.fillRect(135,100, 50, 500);
@@ -34,7 +92,10 @@ function pintarBase(pincel){
     pincel.fillStyle="black";
     pincel.strokeRect(296, 150, 10, 50);
     
-    pincel.strokeStyle="green";     //caebza
+}
+
+function pintarCabeza(){
+    pincel.strokeStyle="green";     //cabeza
     pincel.beginPath();
     pincel.arc(300, 250, 50, 0, 2*Math.PI)
     pincel.stroke();
@@ -43,12 +104,18 @@ function pintarBase(pincel){
     pincel.fillRect(293, 300, 20, 10);
     pincel.fillStyle="black";
     pincel.strokeRect(293, 300, 20, 10);
+};
 
+function pintarCuerpo(){
     pincel.fillStyle="green";       //palito
     pincel.fillRect(299, 310, 4, 130);
-    
-    pincel.fillRect(225, 350, 150, 4)   //manos
+};
 
+function pintarManos(){
+    pincel.fillRect(225, 350, 150, 4)   //manos
+}
+
+function pintarPies(){
     pincel.strokeStyle="green"; //pie
     pincel.lineWidth=4;
     pincel.moveTo(301,440);
@@ -57,117 +124,71 @@ function pintarBase(pincel){
     pincel.moveTo(301,440);
     pincel.lineTo(350,500)
     pincel.stroke();
-
-    pincel.fillStyle = "black";     //guiones
-    pincel.fillRect(150, 700, 40, 3);
-
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 150, 697 );
-
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 200, 697 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 250, 697 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 300, 697 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 350, 697 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 400, 697 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 450, 697 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 500, 697 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 550, 697 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 600, 697 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 650, 697 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 700, 697 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 750, 697 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 800, 697 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 850, 697 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 900, 697 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 950, 697 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 1000, 697 );
-    
 }
 
 function instrucciones(){
     pincel.font = "40px Arial"
     pincel.fillText("Elige una letra", 720, 150);
 };
-instrucciones();
 
-botones();
 function botones(){ //botones letras 27
+    var letras = [  "A","B","C","D","E",
+                    "F","G","H","I","J",
+                    "K","L","M","N","Ñ",
+                    "O","P","Q","R","S",
+                    "T","U","V","W","X",
+                    "Y","Z"];
+    var ejeX=700;
+    var ejeY=250;
+    var indice=0;
+    var parrafo=0;
+    var ejeXRenglon=ejeX;
     pincel.font = "55px Arial";
-    pincel.fillText("H", 700, 250 );
+    pincel.fillStyle = "black";
 
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 800, 250 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 900, 250 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 1000, 250 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 650, 300 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 750, 300 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 850, 300 );
-    pincel.font = "55px Arial";
-    pincel.fillText("O", 950, 300 );
-    
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 700, 350 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 800, 350 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 900, 350 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 1000, 350 );
-
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 650, 400 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 750, 400 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 850, 400 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 950, 400 );
-    
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 700, 450 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 800, 450 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 900, 450 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 1010, 450 );
-    pincel.font = "55px Arial";
-    pincel.fillText("O", 650, 500 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 750, 500 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 850, 500 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 950, 500 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 700, 550 );
-    pincel.font = "55px Arial";
-    pincel.fillText("H", 800, 550 );
-    pincel.font = "55px Arial";
-    pincel.fillText("P", 900, 550 );
+    while(indice<letras.length){
+        pincel.fillText(letras[indice],ejeXRenglon,ejeY);
+        ejeXRenglon+=100;
+        indice++;
+        parrafo++;
+        if(parrafo==4){
+            ejeXRenglon=ejeX-50;
+            ejeY+=50;
+        }
+        if(parrafo==8){
+            ejeXRenglon=ejeX;
+            ejeY+=50;
+            parrafo=0;
+        }   
+    }
     
 }
+
+function pintarGuiones(){
+    //tamaña maximo de la palabra 18 caracteres
+    var arregloPalabra = Array.from(palabraJuego.palabra);
+    var ejeX=150;
+    pincel.font = "55px Arial";
+    pincel.fillStyle="black";
+
+    for(var i=0; i<arregloPalabra.length; i++){
+        pincel.fillRect(ejeX, 700, 40, 3);
+        ejeX+=50;
+    }
+};
+
+function pintarLetras(){
+    var arregloPalabra = Array.from(palabraJuego.palabra);
+    var ejeX=150;
+    pincel.font = "55px Arial";
+    pincel.fillStyle="blue";
+
+    for(var i=0; i<arregloPalabra.length; i++){
+        pincel.fillText(arregloPalabra[i],ejeX,695);
+        ejeX+=50;
+    }
+}
+
+
 
 

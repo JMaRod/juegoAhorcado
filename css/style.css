@@ -4,7 +4,7 @@ body{
 
 header{
     background-color: #F7567C;
-    padding: auto;
+    /* padding: auto; */
 }
 .cajaHeader{
     width: auto;
@@ -22,7 +22,7 @@ header{
 
 
 main{
-    padding: auto; 
+    /* padding: auto;  */
     min-height: 100vh; 
 }
 
@@ -89,7 +89,7 @@ main{
 
 footer{
     background-color: #99E1D9;
-    padding: auto;
+    /* padding: auto; */
 }
 .cajaFooter{
     width: auto;

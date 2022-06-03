@@ -1,6 +1,4 @@
-// imprimirDiccionario();
-// pruebaPalabra("HOLA","saludo");
-// errorSinPalabras();
+
 
 var botonRevisarDiccionario = document.querySelector("#revisarDiccionario")
 botonRevisarDiccionario.addEventListener("click",function(event){
@@ -11,11 +9,9 @@ botonRevisarDiccionario.addEventListener("click",function(event){
     h2.innerHTML="";
     mensaje.innerHTML="";
     if (revisarDiccionario()==false){
-        // console.log("No hay palabras");
         h2.innerHTML="Hay un problema con el diccionario";
         mensaje.innerHTML="Consulta el administrador del sito o agrega palabras manualmente";
     } else {
-        // console.log("hay palabras")
         h2.innerHTML="Tenemos un diccionario";
         mensaje.innerHTML="Actualmente hay " + palabras +" palabras";
     }

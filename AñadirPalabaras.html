@@ -17,20 +17,47 @@
         </div>
     </header>
     <main>
+        <section class="sinPalabras">
+            <button id="revisarDiccionario" class="boton bto-revisar">Revisar Diccionario</button>
+            <h2 id="mostrarErrror"></h2>
+            <span id="mensajeError"></span>
+
+        </section>
         <section class="cajaPrincipal">
             <div class="figura">
 
             </div>
             <div class="Instrucciones">
                 <span>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam dolorem, voluptatibus, nihil molestiae sunt in a sit non consequuntur aut ducimus nulla dolor corrupti, quis eaque. Vitae tenetur explicabo labore.
+                    Para añadir palabras tienes que escribir la palabra a desifrar y una pequeña pista para saber con que tema esta relacionada la palabra por ejemplo <br> palabra: pizza, pista: comida <br>
+                    Las palabra y su pista deben estar con letra mayuscula y no deben tener más de 18 letras 
                 </span>
-                
-
             </div>
-
         </section>
+        <section class="container">
+			<h2 id="titulo-form">Añadir palabra</h2>
+			<ul id="mensajesErrores"></ul>
+			<form id="formAñadir">
+				<div class="grupo">
+					<label for="palabra">Palabra:</label>
+					<input id="palabra" name="palabra" type="text" placeholder="Escribe la palabra" class="campo">
+				</div>
+				<div class="grupo">
+					<label for="pista">Pista:</label>
+					<input id="pista" name="pista" type="text" placeholder="Escribe la pista" class="campo campo-medio">
+				</div>
+				<button id="añadirPalabra" class="boton bto-principal">Añadir Palabra</button>
+			</form>
+		</section>
     </main>
+
+    <section class="regresar">
+        <form class="formRegresar">
+            <a href="index.html">
+                <input type="button" value="Regresar al inicio">
+            </a>
+        </form>
+    </section>
     <footer>
         <div class="cajaFooter">
             <span>
@@ -42,5 +69,7 @@
         </div>
     </footer>
     
+    <script src="scripts/diccionario.js" ></script>
+    <script src="scripts/añadirPalabra.js" ></script>
 </body>
 </html>

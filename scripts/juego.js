@@ -1,63 +1,23 @@
 var tablero = document.querySelector("canvas");
 var pincel = tablero.getContext("2d");
 
-var diccionario=[];
-primerDiccionario();
 var palabraJuego = palabraParaJuego();
 
 pintarTablero();
-
 pintarBase();
+instrucciones();
+botones();
+
+
 pintarCabeza();
 pintarCuerpo();
 pintarManos();
 pintarPies();
-pintarPista();
 
-instrucciones();
+
 pintarGuiones();
-botones();
 pintarLetras();
-
-centrarPalabra();
-
-function primerDiccionario(){
-    llenarDiccionario("HAMBURGUESA","COMIDA");
-    llenarDiccionario("PIZZA","COMIDA");
-    llenarDiccionario("TACOS","COMIDA");
-    llenarDiccionario("MEXICO","PAIS");
-    llenarDiccionario("CHILE","PAIS");
-    llenarDiccionario("PANTALONES","ROPA");
-    llenarDiccionario("SUETER","ROPA");
-}
-
-function llenarDiccionario(palabra, pista){ 
-    if (diccionario.length==0){
-        diccionario[0]=objetoPalabra(palabra,pista)
-    } else {
-        diccionario[diccionario.length]=objetoPalabra(palabra,pista)
-    }
-
-}
-
-function objetoPalabra(palabra, pista){
-    var palabras={
-        palabra:palabra,
-        pista:pista
-    }
-    return palabras;
-}
-
-function palabraParaJuego(){
-    var numero;
-    if (diccionario.length==0){
-        return null
-    } else {
-        numero=Math.round(Math.random()*((diccionario.length-1)));
-        return diccionario[numero];
-
-    }
-}
+pintarPista();
 
 function pintarCuadros(color, origenx, origeny, extencionx, extenciony){
     pincel.fillStyle=color;
@@ -168,14 +128,31 @@ function pintarPista(){
 
 function pintarGuiones(){
     //tamaña maximo de la palabra 18 caracteres
-    var arregloPalabra = Array.from(palabraJuego.palabra);
-    var ejeX=100+centrarPalabra();
-    var color="black";
+    // var arregloPalabra = Array.from(palabraJuego.palabra);
+    // if (arregloPalabra!=null)
+    // var ejeX=100+centrarPalabra();
+    // var color="black";
     
-    for(var i=0; i<arregloPalabra.length; i++){
-        pintarCuadros(color,ejeX, 700, 40, 3);
-        ejeX+=50;
+    // for(var i=0; i<arregloPalabra.length; i++){
+    //     pintarCuadros(color,ejeX, 700, 40, 3);
+    //     ejeX+=50;
+    // }
+    if (palabraJuego!=null){
+        var arregloPalabra = Array.from(palabraJuego.palabra);
+        if (arregloPalabra!=null)
+        var ejeX=100+centrarPalabra();
+        var color="black";
+        
+        for(var i=0; i<arregloPalabra.length; i++){
+            pintarCuadros(color,ejeX, 700, 40, 3);
+            ejeX+=50;
+        }
+    } else {
+        console.log("no hay palabra")
+        pintarTexto("red","55px Arial","No hay palabras", 400, 650)
+        pintarTexto("red","25px Arial","Para mas informacion, ir a la seccion añadir palabras del menu de Inicio", 200, 690)
     }
+    
 };
 
 function pintarLetras(){

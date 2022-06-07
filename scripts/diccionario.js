@@ -100,4 +100,4 @@ function cuantasPalabras(){
     return diccionario.length
 }
 
-console.log(diccionario)
+// console.log(diccionario)

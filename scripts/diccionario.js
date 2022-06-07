@@ -1,4 +1,4 @@
-var diccionario = [{palabra:"HAMBURGUESA",pista:"COMINDA"},
+var diccionario = [{palabra:"HAMBURGUESA",pista:"COMIDA"},
                     {palabra:"PIZZA",pista:"COMIDA"},
                     {palabra:"TACOS",pista:"COMIDA"},
                     {palabra:"MEXICO",pista:"PAIS"},
@@ -9,8 +9,6 @@ var diccionario = [{palabra:"HAMBURGUESA",pista:"COMINDA"},
 
 var json = sessionStorage.getItem("arreglo")
 if (json != null){
-    // var diccionario2 = JSON.parse(json);
-    // diccionario=[...new Set(diccionario2)]
     diccionario = JSON.parse(json);
 }
 
@@ -20,7 +18,6 @@ function llenarDiccionario(palabraNueva){
         añadirPalabraDiccionario(palabraNueva);
     }
     return errores;
-
 }
 
 function añadirPalabraDiccionario(palabraNueva){
@@ -100,4 +97,3 @@ function cuantasPalabras(){
     return diccionario.length
 }
 
-// console.log(diccionario)

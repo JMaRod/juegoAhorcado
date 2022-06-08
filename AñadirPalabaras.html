@@ -6,6 +6,7 @@
     <title>Juego ahorcado - Bienvenido</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styleAñadirPalabra.css">
 </head>
 <body>
     <header>
@@ -17,26 +18,19 @@
         </div>
     </header>
     <main>
-        <section class="sinPalabras">
-            <button id="revisarDiccionario" class="boton bto-revisar">Revisar Diccionario</button>
-            <h2 id="mostrarErrror"></h2>
-            <span id="mensajeError"></span>
-
-        </section>
-        <section class="cajaPrincipal">
-            <div class="figura">
-
-            </div>
-            <div class="Instrucciones">
-                <span>
-                    Para añadir palabras tienes que escribir la palabra a desifrar y una pequeña pista para saber con que tema esta relacionada la palabra por ejemplo <br> palabra: pizza, pista: comida <br>
-                    Las palabra y su pista deben estar con letra mayuscula y no deben tener más de 18 letras 
-                </span>
+        <section class="instruccionesAñadir">
+            <div id="parrafoUnoInstrucciones">
+                Para añadir palabras tienes que escribir la palabra a desifrar y una pequeña pista para saber con que tema esta relacionada la palabra por ejemplo: 
+            </div>    
+            <h2 class="ejemplo">
+                palabra: pizza, pista: comida
+            </h2 class="ultimoParrafo">
+            <div id="parrafoDos">
+                Las palabras y pistas deben estar con mayúsculas, no deben tener mas de 18 letras, no deben de tener espacios, no deben tener números y no deben tener caracteres especiales. 
             </div>
         </section>
-        <section class="container">
-			<h2 id="titulo-form">Añadir palabra</h2>
-			<ul id="mensajesErrores"></ul>
+        <section class="procesoAñadir">
+			<h2 id="tituloForm">Añadir palabra</h2>
 			<form id="formAñadir">
 				<div class="grupo">
 					<label for="palabra">Palabra:</label>
@@ -48,7 +42,15 @@
 				</div>
 				<button id="añadirPalabra" class="boton bto-principal">Añadir Palabra</button>
 			</form>
+            <ul id="mensajesErrores"></ul>
 		</section>
+        <section class="diccionario">
+            <span id="tituloDiccionario">Revisar si hay diccionario y si cuantas palabras hay</span>
+            <button id="revisarDiccionario" class="boton bto-revisar">Revisar Diccionario</button>
+            <span id="mostrarErrror"></span>
+            <span id="mensajeError"></span>
+
+        </section>
     </main>
 
     <section class="regresar">

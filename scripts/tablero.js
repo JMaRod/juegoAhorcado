@@ -122,7 +122,6 @@ function pintarGuiones(palabraJuego){
             ejeX+=50;
         }
     } else {
-        console.log("no hay palabra")
         pintarTexto("red","55px Arial","No hay palabras", 400, 650)
         pintarTexto("red","25px Arial","Para mas informacion, ir a la seccion añadir palabras del menu de Inicio", 200, 690)
     }

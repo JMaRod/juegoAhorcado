@@ -7,7 +7,7 @@ header{
     /* padding: auto; */
 }
 .cajaHeader{
-    width: auto;
+    width: 100%;
     position: relative;
     margin: 0px;
     padding: 20px;

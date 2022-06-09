@@ -3,6 +3,29 @@ var pincel = tablero.getContext("2d");
 var letra = null;
 var xBotones=700;
 var yBotones=120;
+var anchoCuadro=60;
+var ejesX=[(xBotones),(xBotones+100),(xBotones+200),(xBotones+300),(xBotones-70),(xBotones+30),(xBotones+130),(xBotones+230),(xBotones+330)]
+var ejesY=[(yBotones),(yBotones+70),(yBotones+140),(yBotones+210),(yBotones+280),(yBotones+350)];
+
+function pasarOrigen(){
+    var coordenadas={
+        x:xBotones,
+        y:yBotones,
+    }
+    return coordenadas;
+}
+
+function pasarAncho(){
+    return anchoCuadro;
+}
+
+function pasarEjesX(){
+    return ejesX;
+}
+
+function pasarEjesY(){
+    return ejesY;
+}
 
 function pintarCuadros(color, origenx, origeny, extencionx, extenciony){
     pincel.fillStyle=color;
@@ -70,7 +93,7 @@ function pintarPies(){
 
 function instrucciones(){    
     pintarTexto("green","40px Arial","Elige una letra",720,100);
-};
+}
 
 function botones(){
     var letras = [  "A","B","C","D","E",
@@ -80,34 +103,29 @@ function botones(){
                     "T","U","V","W","X",
                     "Y","Z"];
     var indice=0;
-    var parrafo=0;
-    var ejeXCuadros=xBotones;
-    var ejeYCuadros=yBotones;
-    var ejeXLetras=xBotones+10;
-    var ejeYLetras=yBotones+50;
     var fuente = "55px Arial";
+    var ejx=0;
+    var ejy=0;
+    var ejeXLetras=5;
+    var ejesYLetras=50;
 
-    while(indice<letras.length){
-        pintarCuadros("green", ejeXCuadros, ejeYCuadros,60,60)
-        pintarTexto("black",fuente,letras[indice],ejeXLetras,ejeYLetras)
-        ejeXCuadros+=100;
-        ejeXLetras+=100;
-        indice++;
-        parrafo++;
-        if(parrafo==4){
-            ejeXCuadros=xBotones-70;
-            ejeYCuadros+=70;
-            ejeXLetras=xBotones-65;
-            ejeYLetras+=70;
+    while (indice<letras.length){
+        pintarCuadros("green",ejesX[ejx],ejesY[ejy],anchoCuadro,anchoCuadro);
+        pintarTexto("black",fuente,letras[indice],((ejesX[ejx])+ejeXLetras),((ejesY[ejy])+ejesYLetras))
+        ejx++;
+        if(ejx==4){
+            ejy++
         }
-        if(parrafo==9){
-            ejeXCuadros=xBotones;
-            ejeYCuadros+=70;
-            ejeXLetras=xBotones+10 ;
-            ejeYLetras+=70;
-            parrafo=0;
-        }   
+        if(ejx==ejesX.length){
+            ejx=0;
+            ejy++;
+        }
+        indice++;
     }
+}
+
+function pintarRojo(x,y){
+    pintarCuadros("red",x,y,anchoCuadro,anchoCuadro);
 }
 
 function pintarGuiones(palabraJuego){
@@ -128,7 +146,6 @@ function pintarGuiones(palabraJuego){
 }
 
 function pintarPista(palabraJuego){
-    console.log(palabraJuego)
     var pista=palabraJuego.pista;
     var fuente = "35px Arial";
     var colorTexto="rgb(30, 85, 92)";

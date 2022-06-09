@@ -83,10 +83,6 @@ main{
 }
 
 
-
-
-
-
 footer{
     background-color: #99E1D9;
     /* padding: auto; */
@@ -100,3 +96,4 @@ footer{
     align-items: center;
     justify-content: space-evenly;
 }
+

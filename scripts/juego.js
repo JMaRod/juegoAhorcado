@@ -4,6 +4,7 @@ var letras=[];
 var fallos=0;
 var aciertos=0;
 
+
 llamarTablero();
 tablero.onclick = seleccionarLetra;
 
@@ -20,115 +21,148 @@ function seleccionarLetra(evento) {
 
     var x = evento.pageX-tablero.offsetLeft;
     var y = evento.pageY-tablero.offsetTop;
-    xMargen=xBotones;
-    yMargen=yBotones;
+    var anchoCuadro=pasarAncho();
+    var ejesX=pasarEjesX();
+    var ejesY=pasarEjesY();
 
-    if (((x>700)&&(x<760))&&((y>120)&&(y<180))) {
+    if (((x>(ejesX[0]))&&(x<(ejesX[0]+anchoCuadro)))&&((y>(ejesY[0]))&&(y<(ejesY[0]+anchoCuadro)))) {
+        pintarRojo(ejesX[0],ejesY[0])
         letra = "A";
         letrasUsadas("A");
     }
-    if (((x>800)&&(x<860))&&((y>120)&&(y<180))) {
+    if (((x>(ejesX[1]))&&(x<(ejesX[1]+anchoCuadro)))&&((y>(ejesY[0]))&&(y<(ejesY[0]+anchoCuadro)))) {
+        pintarRojo(ejesX[1],ejesY[0]);
         letra = "B";
         letrasUsadas("B");
     }
-    if (((x>900)&&(x<960))&&((y>120)&&(y<180))) {
+    if (((x>(ejesX[2]))&&(x<(ejesX[2]+anchoCuadro)))&&((y>(ejesY[0]))&&(y<(ejesY[0]+anchoCuadro)))) {
+        pintarRojo(ejesX[2],ejesY[0]);
         letra = "C";
         letrasUsadas("C");
     }
-    if (((x>1000)&&(x<1060))&&((y>120)&&(y<180))) {
+    if (((x>(ejesX[3]))&&(x<(ejesX[3]+anchoCuadro)))&&((y>(ejesY[0]))&&(y<(ejesY[0]+anchoCuadro)))) {
+        pintarRojo(ejesX[3],ejesY[0]);
         letra = "D";
         letrasUsadas("D");
     }
-    if (((x>630)&&(x<690))&&((y>190)&&(y<250))) {
+    //cambio de renglon 
+    if (((x>(ejesX[4]))&&(x<(ejesX[4]+anchoCuadro)))&&((y>(ejesY[1]))&&(y<(ejesY[1]+anchoCuadro)))) {
+        pintarRojo(ejesX[4],ejesY[1]);
         letra = "E";
         letrasUsadas("E");
     }
-    if (((x>730)&&(x<790))&&((y>190)&&(y<250))) {
+    if (((x>(ejesX[5]))&&(x<(ejesX[5]+anchoCuadro)))&&((y>(ejesY[1]))&&(y<(ejesY[1]+anchoCuadro)))) {
+        pintarRojo(ejesX[5],ejesY[1]);
         letra = "F";
         letrasUsadas("F");
     }
-    if (((x>830)&&(x<890))&&((y>190)&&(y<250))) {
+    if (((x>(ejesX[6]))&&(x<(ejesX[6]+anchoCuadro)))&&((y>(ejesY[1]))&&(y<(ejesY[1]+anchoCuadro)))) {
+        pintarRojo(ejesX[6],ejesY[1]);
         letra = "G";
         letrasUsadas("G");
     }
-    if (((x>930)&&(x<990))&&((y>190)&&(y<250))) {
+    if (((x>(ejesX[7]))&&(x<(ejesX[7]+anchoCuadro)))&&((y>(ejesY[1]))&&(y<(ejesY[1]+anchoCuadro)))) {
+        pintarRojo(ejesX[7],ejesY[1]);
         letra = "H";
         letrasUsadas("H");
     }
-    if (((x>1030)&&(x<1090))&&((y>190)&&(y<250))) {
+    if (((x>(ejesX[8]))&&(x<(ejesX[8]+anchoCuadro)))&&((y>(ejesY[1]))&&(y<(ejesY[1]+anchoCuadro)))) {
+        pintarRojo(ejesX[8],ejesY[1]);
         letra = "I";
         letrasUsadas("I");
     }
-    if (((x>700)&&(x<760))&&((y>260)&&(y<320))) {
+    //cambio de renglon
+    if (((x>(ejesX[0]))&&(x<(ejesX[0]+anchoCuadro)))&&((y>(ejesY[2]))&&(y<(ejesY[2]+anchoCuadro)))) {
+        pintarRojo(ejesX[0],ejesY[2])
         letra = "J";
         letrasUsadas("J");
     }
-    if (((x>800)&&(x<860))&&((y>260)&&(y<320))) {
+    if (((x>(ejesX[1]))&&(x<(ejesX[1]+anchoCuadro)))&&((y>(ejesY[2]))&&(y<(ejesY[2]+anchoCuadro)))) {
+        pintarRojo(ejesX[1],ejesY[2])
         letra = "K";
         letrasUsadas("K");
     }
-    if (((x>900)&&(x<960))&&((y>260)&&(y<320))) {
+    if (((x>(ejesX[2]))&&(x<(ejesX[2]+anchoCuadro)))&&((y>(ejesY[2]))&&(y<(ejesY[2]+anchoCuadro)))) {
+        pintarRojo(ejesX[2],ejesY[2])
         console.log("L")
         letra = "L";
         letrasUsadas("L");
     }
-    if (((x>1000)&&(x<1060))&&((y>260)&&(y<320))) {
+    if (((x>(ejesX[3]))&&(x<(ejesX[3]+anchoCuadro)))&&((y>(ejesY[2]))&&(y<(ejesY[2]+anchoCuadro)))) {
+        pintarRojo(ejesX[3],ejesY[2])
         letra = "M";
         letrasUsadas("M");
     }
-    if (((x>630)&&(x<690))&&((y>330)&&(y<390))) {
+    //cambio de renglon
+    if (((x>(ejesX[4]))&&(x<(ejesX[4]+anchoCuadro)))&&((y>(ejesY[3]))&&(y<(ejesY[3]+anchoCuadro)))) {
+        pintarRojo(ejesX[4],ejesY[3])
         letra = "N";
         letrasUsadas("N");
     }
-    if (((x>730)&&(x<790))&&((y>330)&&(y<390))) {
+    if (((x>(ejesX[5]))&&(x<(ejesX[5]+anchoCuadro)))&&((y>(ejesY[3]))&&(y<(ejesY[3]+anchoCuadro)))) {
+        pintarRojo(ejesX[5],ejesY[3])
         letra = "Ñ";
         letrasUsadas("Ñ");
     }
-    if (((x>830)&&(x<890))&&((y>330)&&(y<390))) {
+    if (((x>(ejesX[6]))&&(x<(ejesX[6]+anchoCuadro)))&&((y>(ejesY[3]))&&(y<(ejesY[3]+anchoCuadro)))) {
+        pintarRojo(ejesX[6],ejesY[3])
         letra = "O";
         letrasUsadas("O");
     }
-    if (((x>930)&&(x<990))&&((y>330)&&(y<390))) {
+    if (((x>(ejesX[7]))&&(x<(ejesX[7]+anchoCuadro)))&&((y>(ejesY[3]))&&(y<(ejesY[3]+anchoCuadro)))) {
+        pintarRojo(ejesX[7],ejesY[3])
         letra = "P";
         letrasUsadas("P");
     }
-    if (((x>1030)&&(x<1090))&&((y>330)&&(y<390))) {
+    if (((x>(ejesX[8]))&&(x<(ejesX[8]+anchoCuadro)))&&((y>(ejesY[3]))&&(y<(ejesY[3]+anchoCuadro)))) {
+        pintarRojo(ejesX[8],ejesY[3])
         letra = "Q";
         letrasUsadas("Q");
     }
-    if (((x>700)&&(x<760))&&((y>400)&&(y<460))) {
+    //cambio de renglon
+    if (((x>(ejesX[0]))&&(x<(ejesX[0]+anchoCuadro)))&&((y>(ejesY[4]))&&(y<(ejesY[4]+anchoCuadro)))) {
+        pintarRojo(ejesX[0],ejesY[4])
         letra = "R";
         letrasUsadas("R");
     }
-    if (((x>800)&&(x<860))&&((y>400)&&(y<460))) {
+    if (((x>(ejesX[1]))&&(x<(ejesX[1]+anchoCuadro)))&&((y>(ejesY[4]))&&(y<(ejesY[4]+anchoCuadro)))) {
+        pintarRojo(ejesX[1],ejesY[4])
         letra = "S";
         letrasUsadas("S");
     }
-    if (((x>900)&&(x<960))&&((y>400)&&(y<460))) {
+    if (((x>(ejesX[2]))&&(x<(ejesX[2]+anchoCuadro)))&&((y>(ejesY[4]))&&(y<(ejesY[4]+anchoCuadro)))) {
+        pintarRojo(ejesX[2],ejesY[4])
         letra = "T";
         letrasUsadas("T");
     }
-    if (((x>1000)&&(x<1060))&&((y>400)&&(y<460))) {
+    if (((x>(ejesX[3]))&&(x<(ejesX[3]+anchoCuadro)))&&((y>(ejesY[4]))&&(y<(ejesY[4]+anchoCuadro)))) {
+        pintarRojo(ejesX[3],ejesY[4])
         letra = "U";
         letrasUsadas("U");
     }
-    if (((x>630)&&(x<690))&&((y>470)&&(y<530))) {
+    //cambio de renglon
+    if (((x>(ejesX[4]))&&(x<(ejesX[4]+anchoCuadro)))&&((y>(ejesY[5]))&&(y<(ejesY[5]+anchoCuadro)))) {
+        pintarRojo(ejesX[4],ejesY[5])
         letra = "V";
         letrasUsadas("V");
     }
-    if (((x>730)&&(x<790))&&((y>470)&&(y<530))) {
+    if (((x>(ejesX[5]))&&(x<(ejesX[5]+anchoCuadro)))&&((y>(ejesY[5]))&&(y<(ejesY[5]+anchoCuadro)))) {
+        pintarRojo(ejesX[5],ejesY[5])
         letra = "W";
         letrasUsadas("W");
     }
-    if (((x>830)&&(x<890))&&((y>470)&&(y<530))) {
+    if (((x>(ejesX[6]))&&(x<(ejesX[6]+anchoCuadro)))&&((y>(ejesY[5]))&&(y<(ejesY[5]+anchoCuadro)))) {
+        pintarRojo(ejesX[6],ejesY[5])
         letra = "X";
         letrasUsadas("X");
     }
-    if (((x>930)&&(x<990))&&((y>470)&&(y<530))) {
+    if (((x>(ejesX[7]))&&(x<(ejesX[7]+anchoCuadro)))&&((y>(ejesY[5]))&&(y<(ejesY[5]+anchoCuadro)))) {
+        pintarRojo(ejesX[7],ejesY[5])
         letra = "Y";
         letrasUsadas("Y");
     }
-    if (((x>1030)&&(x<1090))&&((y>470)&&(y<530))) {
+    if (((x>(ejesX[8]))&&(x<(ejesX[8]+anchoCuadro)))&&((y>(ejesY[5]))&&(y<(ejesY[5]+anchoCuadro)))) {
+        pintarRojo(ejesX[8],ejesY[5])
         letra = "Z";
         letrasUsadas("Z");
     }
@@ -206,7 +240,6 @@ function comparaErrores(){
 }
 
 function pruebaVictoria(){
-    console.log(aciertos)
     if(aciertos==palabraJuego.palabra.length)
     terminar(true,palabraJuego);
 }

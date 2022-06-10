@@ -3,7 +3,12 @@ var letra
 var letras=[];
 var fallos=0;
 var aciertos=0;
+var victorias=0;
 
+var json = sessionStorage.getItem("ganados")
+if (json != 0){
+    victorias = JSON.parse(json);
+}
 
 llamarTablero();
 tablero.onclick = seleccionarLetra;
@@ -84,7 +89,6 @@ function seleccionarLetra(evento) {
     }
     if (((x>(ejesX[2]))&&(x<(ejesX[2]+anchoCuadro)))&&((y>(ejesY[2]))&&(y<(ejesY[2]+anchoCuadro)))) {
         pintarRojo(ejesX[2],ejesY[2])
-        console.log("L")
         letra = "L";
         letrasUsadas("L");
     }
@@ -240,10 +244,26 @@ function comparaErrores(){
 }
 
 function pruebaVictoria(){
-    if(aciertos==palabraJuego.palabra.length)
-    terminar(true,palabraJuego);
+    if(aciertos==palabraJuego.palabra.length){
+        terminar(true,palabraJuego);
+        victorias++;
+        guardarVictorias();
+    }
 }
 
+
+
+////////////////////////////////////////////////////////////////////////////
+
+
+function guardarVictorias(){
+    sessionStorage.setItem("ganados",JSON.stringify(victorias));
+}
+
+function imprimirVictorias(){
+    console.log(victorias)
+    
+}imprimirVictorias();
 
 
 

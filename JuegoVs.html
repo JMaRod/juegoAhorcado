@@ -19,25 +19,37 @@
     <main>
         <section class="cajaPrincipal">
             <div class="figura">
-
             </div>
             <div class="Instrucciones">
                 <span>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam dolorem, voluptatibus, nihil molestiae sunt in a sit non consequuntur aut ducimus nulla dolor corrupti, quis eaque. Vitae tenetur explicabo labore.
+                    En el retro contrareloj deberas, adivinar el mayor numero de plabaras en un minuto.
                 </span>
-                
-
             </div>
-
         </section>
 
+        <section id="cronometro">
+            <h1 id="reloj"><time>00:00</time></h1>
+            <button id="inicio" onclick="iniciarReloj()">Inicio</button>
+            <button id="detener" onclick="stop()">Detener</button>
+            <button id="reiniciar" onclick="reset()">Reiniciar</button>
+        </section>
+
+        <section>
+            <div id="tablero">
+                <canvas width="1200" height="800">
+                </canvas>
+            </div>
+        </section>
+        
         <section class="regresar">
             <form class="formRegresar">
                 <a href="index.html">
                     <input type="button" value="Regresar al inicio">
                 </a>
+                <input type="button" onclick="history.go(0)" value="Otra Palabra">
             </form>
         </section>
+
     </main>
     <footer>
         <div class="cajaFooter">
@@ -49,6 +61,10 @@
             </span>
         </div>
     </footer>
-    
+
+    <script src="scripts/diccionario.js" ></script>
+    <script src="scripts/tablero.js" ></script>
+    <script src="scripts/juego.js" ></script>
+    <script src="scripts/juegoVs.js" ></script>
 </body>
 </html>

@@ -265,6 +265,10 @@ function imprimirVictorias(){
     
 }imprimirVictorias();
 
+function nuevaPalabra(){
+    palabraJuego = palabraParaJuego();
+}
+
 
 
 

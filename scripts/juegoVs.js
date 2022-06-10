@@ -9,12 +9,14 @@ var tiempo;
 var apretado=false;
 
 var json = sessionStorage.getItem("tiempo")
-if (json != 0){
-    min = JSON.parse(json);
+if (json != null){
+    sec = JSON.parse(json);
+    console.log("aaaaaaaa "+sec)
 }
 
 function guardarTiempo(){
-    sessionStorage.setItem("tiempo",JSON.stringify(min));
+    console.log("bbbbbbbbb "+sec)
+    sessionStorage.setItem("tiempo",JSON.stringify(sec));
 }
 
 
@@ -26,10 +28,14 @@ function segundero(){
     }
 }
 function actualizar() {
-    segundero();
+    if(min<1){
+        segundero();
     reloj.textContent = (min > 9 ? min : "0" + min) 
         	 + ":" + (sec > 9 ? sec : "0" + sec);
     timer();
+    } else {
+        return
+    }
 }
 
 function iniciarReloj(){
@@ -58,8 +64,9 @@ function reset(){
 }
 
 function otraPalabra(){
+    stop();
     guardarTiempo();
-
+    history.go(0);
 }
 
 function imprimirTiempo(){

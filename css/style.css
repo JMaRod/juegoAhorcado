@@ -1,16 +1,15 @@
-body{
-    background: #FFFAE3;
+header{
+    background-color: #8e9aaf;
 }
 
-header{
-    background-color: #F7567C;
-    /* padding: auto; */
+body{
+    background: #efd3d7;
 }
+
 .cajaHeader{
     width: 100%;
     position: relative;
     margin: 0px;
-    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -19,11 +18,8 @@ header{
     font-size:xx-large;
 }
 
-
-
 main{
-    /* padding: auto;  */
-    min-height: 100vh; 
+    min-height: 83vh; 
 }
 
 .cajaPrincipalindex{
@@ -32,49 +28,74 @@ main{
     margin: 0px;
     padding: 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    border-color: black;
-    border-style: solid;
-    border-width: 10px;
-    
-    
-
 }
+
+.titulo{
+    text-align: center;
+    grid-column: 2/6;
+    align-items: center;
+    margin-bottom: 3px;
+}
+.titulo h1{
+    font-size: 70px;
+    margin-top: 7%;
+}
+
+.titulo h3{
+    margin-top: 30px;
+    font-size: 40px;
+}
+
 .menu{
     box-sizing:border-box;
     width: 100%;
-    grid-column: 2/3;
+    grid-column: 3/5;
     grid-row: 2/3;
-    border-color: rgb(209, 11, 11);
-    border-style: solid;
-    border-width: 10px;
-
+    background: #cbc0d3 ;
+    border-radius: 50px;
+    margin-top: 30px;
 }
 
-.itemMenu{
+.tituloItemMenu{
+    text-align: center;
+    font-size: xx-large;
+    padding-bottom: 5px;
+}
+
+#itemMenu{
     font-size: x-large;
-    padding: 3px;
+    padding: 5px;
     margin: 5px;
     text-align: center;
+    align-content: center;
 }
+
 .boton{
-    width: 100%;
+    width: 75%;
     font-size: x-large;
-    padding: 15px;
+    padding: 10px;
+    margin: 5px;
     border-radius: 20px;
     border-style: none;
-    border-width: 5px;
-    border-color: black;
-
+    background-color: #8e9aaf;
 }
 
+input:hover, input:active{
+    background-color: #d75a77;
+}
 
 .formRegresar{
     margin-top: 20px;
     text-align: center;
     margin-bottom: 20px;
 }
+
+.formRegresar a{
+    text-decoration: none;
+}
+
 .formRegresar input{
     font-size: x-large;
     padding: 5px 20px;
@@ -82,11 +103,10 @@ main{
     border-radius: 20px;
 }
 
-
 footer{
-    background-color: #99E1D9;
-    /* padding: auto; */
+    background-color: #8e9aaf;
 }
+
 .cajaFooter{
     width: auto;
     position: relative;
@@ -96,4 +116,3 @@ footer{
     align-items: center;
     justify-content: space-evenly;
 }
-

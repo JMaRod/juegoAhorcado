@@ -1,0 +1,70 @@
+
+.principal{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: .5fr 2fr 2fr 1fr;
+
+}
+
+.cajaTitulo{
+
+
+    grid-column: 1/ sapn 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardRequisitos, .cardSolucion{
+    grid-row: 2 ;
+    background-color: #cbc0d3;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.cardRequisitos:hover, .cardSolucion:hover, .descripcion:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.descripcion{
+    background-color: #cbc0d3;
+    grid-column: 1/span 2;
+    grid-row: 3;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 20px 4px 50px 0px rgba(0,0,0,0.2);
+    transition: 0.3s;
+
+    
+}
+
+.anhadidos{
+    display: flex;
+    justify-content: center;
+}
+
+.autor{
+    grid-column: 1 /span 2;
+    grid-row: 4;
+    background-color: #e0b1cb;
+    box-shadow: 20px 4px 50px 0px rgba(0,0,0,0.2);
+}
+
+.contenidoAutor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.tituloAutor, .descripcionAutor{
+    justify-content: center;
+    margin: 10px;
+}
+
+.fa-5x{
+    color: purple;
+    margin-left: 50px;
+}

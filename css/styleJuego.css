@@ -5,16 +5,17 @@ header{
         display: flex;
         align-items: center;
         justify-content: space-around;
-
 }
 
-@media screen and (max-width: 1359px) {
-    header{
-        width: 120%;
-    }
+#tablero{
+    display: flex;
+    justify-content: center;
+}
 
-    footer{
-        width: 120%;
-    }
-
-} 
+canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego ahorcado - Bienvenido</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styleAcerca.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <div class="cajaHeader">
+            <a href="https://www.aluracursos.com">
+                <img src="img/Logo.png" alt="logo alura">
+            </a>
+            <h1>Juego del Ahorcado</h1>
+        </div>
+    </header>
+    <main>
+        <section class="principal">
+            <div class="cajaTitulo" >
+                <h1 class="tituloProyecto" >Acerca del desarrollo del juego del ahorcado</h1>
+            </div>
+            <div class="cardRequisitos" >
+                <h3>
+                    Para cumplir el desafío se tenía que hacer un juego del ahorcado con las siguientes características
+                </h3>
+                <ul>
+                    <li>
+                        Se tenía que hacer con canvas.
+                    </li>
+                    <li>
+                        El tablero de juego debía medir 1200x800 pixeles.
+                    </li>
+                    <li>
+                        Se debían mostrar un mensaje para indicar que se había ganado o perdido el juego.
+                    </li>
+                    <li>
+                        Se tenía que poner un botón para dar la opción para salir del juego
+                    </li>
+                        <li>
+                            Tenía que poder añadir palabras nuevas al juego.
+                    </li>
+                        <li>
+                            Solo debe trabajar con letras mayúsculas, sin espacios y sin caracteres especiales.
+                        </li>
+                    </ul>
+            </div>
+            <div class="cardSolucion" >
+                <h3>
+                    Mi propuesta para la solución del proyecto.
+                </h3>
+                <ul>
+                    <li>Se realizo un tablero con canvas, cumpliendo las medidas exactas que se pedía.</li>
+                    <li>Para el fondo del canvas se "pinto" con el mismo canvas un fondo para simular una hoja de cuaderno.</li>
+                    <li>Como página principal se puso un menú donde se pudiera escoger entre las opciones:</li>
+                    <ul>
+                        <li>Jugar: donde te llevara al juego en si.</li>
+                        <li>Instrucciones: te lleva a un apartado para conocer las instrucciones del juego.</li>
+                        <li>Añadir palabra: donde se podrá añadir palabra.</li>
+                        <li>Acerca de este proyecto: donde se da una explicación del proyecto y del porque se hizo</li>
+                    </ul>
+                </ul>
+            </div>
+
+            <div class="descripcion">
+                <div class="anhadidos">
+                    <h3>
+                        Algunos añádidos para la solucion
+                    </h3>
+                </div>
+                <ul>
+                    <li>Dentro del juego se optó por poner los botones de las letras en el mismo tablero para de esta manera tener un mejor control de las letras que se usan para describir la palabra.
+                    </li>
+                    <li>
+                        Se decidió incluir un pista junto con las palabras para ayudar al usuario final.
+                    </li>
+                    <li>
+                        Se decidió añadir un letreo para advertir al usuario que solo queda un intento para terminar el juego.
+                    </li>
+                    <li>
+                        Afuera del tablero se añadieron dos botones para regresar al inicio y para jugar otra palabra.
+                    </li>
+                    <li>
+                        Para la sección de añadir palabras se decidió que se usarían dos forms para pedir la nueva palabra y su pista correspondiente; además de que se agregaron métodos para validar que la palabra no tenga espacios, minúsculas o números. Y en caso de encontrar los errores señalarlo en la página.
+                    </li>
+                    <li>
+                        Se coloco una opción para revisar si hay un diccionario precargado y cuantas palabras hay en el mismo.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="autor">
+                <div class="contenidoAutor">
+                    <div class="tituloAutor">
+                        <h1>Autor: Manuel Rodriguez</h1>
+                    </div>
+                    <div class="descripcionAutor">
+                        <h4>
+                            Estudiante de ingeniería en computación con conocimiento de lenguajes de programación, java, javascript y c. 
+                        </h4>
+                        <h4>
+                            Para más información puedes revisar el github del juego o manda email a jmarodone@gmail.com
+        
+                        </h4>
+                        <form class="formGithub">
+                            <a href="https://github.com/JMaRod/juegoAhorcado" class="fa fa-github fa-5x">
+                            </a>
+                            <a href="mailto:jmarodone@gmail.com?Subject=Interesado%20en%20el%20programador" class="fa fa-comments fa-5x">
+                            </a>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+            
+        </section>
+    </main>
+    <form class="formRegresar">
+        <a href="index.html">
+            <input type="button" value="Regresar al inicio">
+        </a>
+    </form>
+    <footer>
+        <div class="cajaFooter">
+            <span>
+                Desarrollado por Manuel Rodríguez para Alura y Oracle Next Education
+            </span>
+            <span>
+                Derechos reservados 2022
+            </span>
+        </div>
+    </footer>
+    
+</body>
+</html>

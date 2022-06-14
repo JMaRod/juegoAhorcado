@@ -253,21 +253,6 @@ function pruebaVictoria(){
 
 
 
-////////////////////////////////////////////////////////////////////////////
-
-
-function guardarVictorias(){
-    sessionStorage.setItem("ganados",JSON.stringify(victorias));
-}
-
-function imprimirVictorias(){
-    console.log(victorias)
-    
-}imprimirVictorias();
-
-function nuevaPalabra(){
-    palabraJuego = palabraParaJuego();
-}
 
 
 

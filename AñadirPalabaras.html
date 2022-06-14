@@ -19,37 +19,43 @@
     </header>
     <main>
         <section class="instruccionesAñadir">
-            <div id="parrafoUnoInstrucciones">
-                Para añadir palabras tienes que escribir la palabra a desifrar y una pequeña pista para saber con que tema esta relacionada la palabra por ejemplo: 
-            </div>    
-            <h2 class="ejemplo">
-                palabra: pizza, pista: comida
-            </h2 class="ultimoParrafo">
-            <div id="parrafoDos">
-                Las palabras y pistas deben estar con mayúsculas, no deben tener mas de 18 letras, no deben de tener espacios, no deben tener números y no deben tener caracteres especiales. 
+            <div id="textoInstrucciones">
+                Para añadir palabras tienes que escribir la palabra a descifrar y una pequeña pista para saber con qué tema está relacionada la palabra, por emeplo:
+            </div> 
+            <div class="ejemplo">
+                palabra: PIZZA, pista: COMIDA
+            </div>   
+            <div id="textoInstrucciones">
+                Las palabras y pistas deben estar con mayúsculas, no deben tener más de 18 letras, no deben de tener espacios, no deben tener números y no deben tener caracteres especiales.            </div>
             </div>
         </section>
         <section class="procesoAñadir">
-			<h2 id="tituloForm">Añadir palabra</h2>
 			<form id="formAñadir">
-				<div class="grupo">
+				<div >
 					<label for="palabra">Palabra:</label>
-					<input id="palabra" name="palabra" type="text" placeholder="Escribe la palabra" class="campo">
+					<input id="palabra" name="palabra" type="text" placeholder="Escribe aquí" class="campo">
 				</div>
-				<div class="grupo">
+				<div >
 					<label for="pista">Pista:</label>
-					<input id="pista" name="pista" type="text" placeholder="Escribe la pista" class="campo campo-medio">
+					<input id="pista" name="pista" type="text" placeholder="Escribe aquí" class="campo">
 				</div>
-				<button id="añadirPalabra" class="boton bto-principal">Añadir Palabra</button>
+				
 			</form>
+            <div class="botonAñadirPalabra">
+                <button id="añadirPalabra" class="boton">Añadir Palabra</button>
+            </div>
             <ul id="mensajesErrores"></ul>
 		</section>
         <section class="diccionario">
-            <span id="tituloDiccionario">Revisar si hay diccionario y si cuantas palabras hay</span>
-            <button id="revisarDiccionario" class="boton bto-revisar">Revisar Diccionario</button>
-            <span id="mostrarErrror"></span>
-            <span id="mensajeError"></span>
-
+            <span id="tituloDiccionario">Revisar si hay diccionario y cuantas palabras </span>
+            <div class="botonRevisar">
+                <button id="revisarDiccionario" class="boton">Revisar Diccionario</button>
+            </div>
+            
+            <div class="errores">
+                <span id="existeDiccionario"></span>
+                <span id="cuantasPalabras"></span>
+            </div>
         </section>
     </main>
 
